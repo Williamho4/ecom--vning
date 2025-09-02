@@ -1,5 +1,6 @@
 import ProductDetails from '@/components/product-details'
-import { fetchProductById } from '@/lib/utils'
+import Link from 'next/link'
+import { Suspense } from 'react'
 
 type PageProps = {
   params: {
@@ -10,11 +11,12 @@ type PageProps = {
 async function Page({ params }: PageProps) {
   const { id } = await params
 
-  const product = await fetchProductById(id)
-
   return (
     <section>
-      <ProductDetails {...product} />
+      <h1>Product</h1>
+      <Suspense fallback={<p>Loading</p>}>
+        <ProductDetails productId={id} />
+      </Suspense>
     </section>
   )
 }

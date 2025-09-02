@@ -1,21 +1,15 @@
+import { fetchProductById } from '@/lib/utils'
 import Image from 'next/image'
+import AddToCartBtn from './add-to-cart-btn'
 
 type ProductDetailsProps = {
-  id: number
-  title: string
-  price: number
-  description: string
-  category: string
-  image: string
+  productId: string
 }
 
-function ProductDetails({
-  title,
-  price,
-  description,
-  category,
-  image,
-}: ProductDetailsProps) {
+async function ProductDetails({ productId }: ProductDetailsProps) {
+  const product = await fetchProductById(productId)
+  const { image, title, category, description, price } = product
+
   return (
     <div className="max-w-4xl mx-auto p-6 bg-white rounded-xl shadow-md flex flex-col md:flex-row gap-6">
       <div className="relative w-full md:w-1/2 h-96">
@@ -37,9 +31,7 @@ function ProductDetails({
 
         <div className="mt-4 flex items-center justify-between">
           <p className="text-2xl font-bold text-blue-600">${price}</p>
-          <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-            Add to Cart
-          </button>
+          <AddToCartBtn product={product} />
         </div>
       </div>
     </div>
