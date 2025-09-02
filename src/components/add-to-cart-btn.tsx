@@ -1,7 +1,7 @@
 'use client'
 
 import { Product } from '@/lib/types'
-import { useCart } from '@/zustand/store'
+import { useCart } from '@/zustand/cartStore'
 
 type AddToCartBtnProps = {
   product: Product
