@@ -1,4 +1,4 @@
-import CartList from '@/components/cart-list'
+import CartList from '@/components/cart-list/cart-list'
 
 function Page() {
   return <CartList />

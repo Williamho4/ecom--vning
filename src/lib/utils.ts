@@ -1,5 +1,6 @@
 import clsx, { ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
+import { CartProduct } from './types'
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -17,4 +18,8 @@ export async function fetchProductById(id: string) {
   const data = await res.json()
 
   return data
+}
+
+export function getTotalPriceOfCart(cart: CartProduct[]) {
+  return cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
 }

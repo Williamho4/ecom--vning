@@ -24,7 +24,12 @@ async function ProductDetails({ productId }: ProductDetailsProps) {
 
       <div className="flex flex-col justify-between gap-4 md:w-1/2">
         <div className="flex flex-col gap-2">
-          <h1 className="text-2xl font-bold text-gray-800">{title}</h1>
+          <h1
+            data-id="product-details-title"
+            className="text-2xl font-bold text-gray-800"
+          >
+            {title}
+          </h1>
           <p className="text-sm text-gray-500 uppercase">{category}</p>
           <p className="text-gray-700">{description}</p>
         </div>

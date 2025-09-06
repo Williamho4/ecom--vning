@@ -31,7 +31,10 @@ function ProductCard({
           />
         </div>
         <div className="flex flex-col gap-2 overflow-hidden">
-          <h2 className="text-lg font-semibold text-gray-800 truncate">
+          <h2
+            data-id="product-card-title"
+            className="text-lg font-semibold text-gray-800 truncate"
+          >
             {title}
           </h2>
           <p className="text-sm text-gray-500 truncate">{category}</p>

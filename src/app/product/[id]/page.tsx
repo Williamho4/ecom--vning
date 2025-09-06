@@ -1,5 +1,4 @@
 import ProductDetails from '@/components/product-details'
-import Link from 'next/link'
 import { Suspense } from 'react'
 
 type PageProps = {

@@ -14,7 +14,10 @@ function CartListItem({ product }: CartListItemProps) {
   const decreaseItemQuantity = useCart((state) => state.decreaseItemQuantity)
 
   return (
-    <li className="flex items-center gap-4 rounded-xl border bg-white p-4 shadow-sm">
+    <li
+      data-id={`cart-item-${id}`}
+      className="flex items-center gap-4 rounded-xl border bg-white p-4 shadow-sm"
+    >
       {/* Thumbnail */}
       <div className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-lg border">
         <Image
@@ -40,6 +43,7 @@ function CartListItem({ product }: CartListItemProps) {
       {/* Quantity controls */}
       <div className="flex items-center gap-2">
         <Button
+          data-id={`decrease-cart-item-${id}`}
           type="button"
           onClick={() => decreaseItemQuantity(id)}
           className="rounded-lg border bg-gray-50 text-gray-700 hover:bg-gray-100"
@@ -48,9 +52,15 @@ function CartListItem({ product }: CartListItemProps) {
           −
         </Button>
 
-        <span className="w-8 text-center text-sm font-medium">{quantity}</span>
+        <span
+          data-id={`item-quantity-${id}`}
+          className="w-8 text-center text-sm font-medium"
+        >
+          {quantity}
+        </span>
         <Button
           type="button"
+          data-id={`increase-cart-item-${id}`}
           onClick={() => increaseItemQuantity(id)}
           className="rounded-lg border bg-gray-50 text-gray-700 hover:bg-gray-100"
           aria-label="Increase quantity"
@@ -63,6 +73,7 @@ function CartListItem({ product }: CartListItemProps) {
         <div className="text-right text-sm font-bold text-gray-900">$9</div>
         <Button
           type="button"
+          data-id={`remove-item-${id}`}
           onClick={() => removeItem(id)}
           className="mt-1 text-xs bg-red-500 text-white hover:text-white"
         >

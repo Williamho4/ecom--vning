@@ -1,14 +1,16 @@
 'use client'
 
 import { useCart } from '@/zustand/cartStore'
+import useStore from '@/zustand/useStore'
 import { ShoppingCart } from 'lucide-react'
 import Link from 'next/link'
 
 function ShoppingCartBtn() {
-  const cartQuantity = useCart((state) => state.getTotalQuantity())
+  const cartQuantity = useStore(useCart, (state) => state.getTotalQuantity())
 
   return (
     <Link
+      data-id="shopping-cart-btn"
       href="/cart"
       className="relative flex items-center rounded-lg p-2 text-gray-700 hover:bg-gray-100"
     >

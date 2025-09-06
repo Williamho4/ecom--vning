@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import { ShoppingCart } from 'lucide-react'
 import ShoppingCartBtn from './shopping-cart-btn'
 
 function Navbar() {
@@ -15,13 +14,6 @@ function Navbar() {
         >
           MyShop
         </Link>
-
-        {/* Navigation */}
-        <nav className="hidden gap-6 md:flex">
-          <Link href="/" className="text-gray-700 hover:text-blue-600">
-            Home
-          </Link>
-        </nav>
 
         {/* Cart */}
         <ShoppingCartBtn />
